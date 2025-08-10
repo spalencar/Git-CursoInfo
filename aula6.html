@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="imagens/favicon-16x16.png">
+    <title>Aula 6 - Editores de Texto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Dark Tech (Deep Gray, Dark Blue, Teal, Teal accents) -->
+    <!-- Application Structure Plan: Individual HTML pages for each lesson, navigated via a top fixed dropdown menu. Each page contains its lesson content and a dedicated questionnaire. This structure enhances modularity, allowing for more in-depth content per lesson and clearer separation, improving user experience for a multi-lesson course. -->
+    <!-- Visualization & Content Choices: Report Info: 'O que são Editores de Texto?' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for concept. Report Info: 'Funcionalidades Básicas' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for features. Report Info: 'Exemplos de Editores de Texto' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for different types. New: Questionnaire -> Goal: Assess understanding -> Viz: HTML Form with JS validation. Justification: Direct assessment of lesson comprehension. Logo uses <img> tag for better branding and accessibility. No quantitative data was present, so no charts were used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card {
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .card.is-flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .card-face-back {
+            transform: rotateY(180deg);
+        }
+        .icon-glow:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 15px currentColor;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-950 p-4 shadow-lg">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="./imagens/logotipo-ICV.png" alt="Logo Instituto Casa Verde" class="h-8 md:h-10">
+                <p style="color: rgb(3, 255, 3);">INSTITUTO CASA VERDE</p>
+            </div>
+            <div class="relative">
+                <select id="lessonSelect" class="bg-gray-700 text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 cursor-pointer">
+                    <option value="aula1.html">Aula 1 - Introdução</option>
+                    <option value="aula2.html">Aula 2 - Conectando e Cuidando</option>
+                    <option value="aula3.html">Aula 3 - O que são Softwares?</option>
+                    <option value="aula4.html">Aula 4 - Conhecendo o Windows</option>
+                    <option value="aula5.html">Aula 5 - Organizando Arquivos</option>
+                    <option value="aula6.html" selected>Aula 6 - Editores de Texto</option>
+                    <option value="aula7.html">Aula 7 - Multimídia e Online</option>
+                    <option value="aula8.html">Aula 8 - Navegando na Internet</option>
+                    <option value="aula9.html">Aula 9 - Segurança na Internet</option>
+                    <option value="aula10.html">Aula 10 - Criando Conteúdo</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- AULA 6: Editores de Texto -->
+        <section id="aula6_content" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">AULA 6</h2>
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">Editores de Texto – Suas Ferramentas de Escrita Digital</h2>
+                <p class="text-lg text-center text-gray-300 mb-12 max-w-2xl mx-auto">Nesta aula, vamos aprender sobre os editores de texto, que são como cadernos digitais superpoderosos para você escrever, criar trabalhos e se comunicar!</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">O que são Editores de Texto?</h3>
+                        <p class="text-lg text-gray-300 mb-4">Editores de texto são programas de computador que permitem criar, editar e formatar documentos escritos. Desde uma simples anotação até um trabalho escolar completo, eles são essenciais para quem usa o computador para escrever.</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">Escrita:</strong> Digite textos, frases, parágrafos.</li>
+                            <li><strong class="text-orange-400">Edição:</strong> Corrija erros, adicione ou remova palavras.</li>
+                            <li><strong class="text-green-400">Formatação:</strong> Mude o tamanho da letra, a cor, o tipo de fonte, adicione negrito, itálico, etc.</li>
+                            <li><strong class="text-purple-400">Organização:</strong> Crie listas, tabelas e organize seu conteúdo.</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="./imagens/editor-textos-01.jpg" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="flex justify-center items-center order-2 lg:order-1">
+                        <img src="./imagens/digitando-textos.jpg" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">Funcionalidades Básicas que Você Vai Usar</h3>
+                        <p class="text-lg text-gray-300 mb-4">Mesmo os editores mais simples têm funções que facilitam muito a vida:</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">Digitar e Apagar:</strong> O básico para escrever e corrigir.</li>
+                            <li><strong class="text-orange-400">Copiar e Colar:</strong> Selecione um texto, copie (Ctrl+C ou botão direito > Copiar) e cole (Ctrl+V ou botão direito > Colar) em outro lugar.</li>
+                            <li><strong class="text-green-400">Salvar:</strong> Sempre salve seu trabalho! Clique em "Arquivo" > "Salvar" ou "Salvar como". Escolha um nome e um lugar para guardar.</li>
+                            <li><strong class="text-purple-400">Desfazer e Refazer:</strong> Cometeu um erro? Use Ctrl+Z para desfazer. Se desfez demais, Ctrl+Y para refazer.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-6 text-teal-400">Conheça Alguns Editores de Texto Populares</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                            <span class="text-5xl mb-4 block">🗒️</span>
+                            <h4 class="text-2xl font-semibold text-white">Bloco de Notas (Notepad)</h4>
+                            <p class="text-gray-300">Simples e rápido, ideal para anotações rápidas e textos sem formatação.</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                            <span class="text-5xl mb-4 block">📄</span>
+                            <h4 class="text-2xl font-semibold text-white">Microsoft Word</h4>
+                            <p class="text-gray-300">O mais famoso! Cheio de recursos para criar documentos profissionais, com muitas opções de formatação.</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                            <span class="text-5xl mb-4 block">✍️</span>
+                            <h4 class="text-2xl font-semibold text-white">Google Docs</h4>
+                            <p class="text-gray-300">Online e colaborativo! Permite criar e editar documentos diretamente na internet, e várias pessoas podem trabalhar juntas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="questionario-aula6" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-8 text-white">Questionário da Aula 6 <br> Editores de Texto</h2>
+                <form id="quizFormAula6" class="space-y-8">
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">1. Qual a principal função de um editor de texto?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q1_aula6" value="a" class="mr-2"> Conectar o computador à internet.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula6" value="b" class="mr-2"> Criar, editar e formatar documentos escritos.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula6" value="c" class="mr-2"> Organizar fotos e vídeos.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula6" value="d" class="mr-2"> Jogar videogames.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">2. Qual destas opções permite mudar a aparência do texto (tamanho, cor, negrito)?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q2_aula6" value="a" class="mr-2"> Digitar
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula6" value="b" class="mr-2"> Salvar
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula6" value="c" class="mr-2"> Formatar
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula6" value="d" class="mr-2"> Copiar
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">3. Qual atalho de teclado é usado para "desfazer" uma ação em um editor de texto?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q3_aula6" value="a" class="mr-2"> Ctrl + C
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula6" value="b" class="mr-2"> Ctrl + V
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula6" value="c" class="mr-2"> Ctrl + Z
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula6" value="d" class="mr-2"> Ctrl + S
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">4. Qual editor de texto é conhecido por ser online e permitir que várias pessoas trabalhem juntas?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q4_aula6" value="a" class="mr-2"> Bloco de Notas
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula6" value="b" class="mr-2"> Microsoft Word
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula6" value="c" class="mr-2"> Google Docs
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula6" value="d" class="mr-2"> Paint
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">5. Por que é importante "Salvar" seu documento frequentemente?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q5_aula6" value="a" class="mr-2"> Para o computador desligar mais rápido.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula6" value="b" class="mr-2"> Para não perder o que você escreveu se o computador desligar ou travar.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula6" value="c" class="mr-2"> Para compartilhar com outras pessoas automaticamente.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula6" value="d" class="mr-2"> Apenas para ocupar espaço no disco rígido.
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-full text-lg transition-transform duration-300 transform hover:scale-105">
+                        Verificar Respostas
+                    </button>
+                </form>
+                <div id="quizResultsAula6" class="mt-8 bg-gray-700 p-6 rounded-lg shadow-lg hidden">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Seus Resultados:</h3>
+                    <p id="scoreTextAula6" class="text-xl text-gray-100 mb-4"></p>
+                    <ul id="feedbackListAula6" class="space-y-2"></ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-950 text-gray-400 text-center p-4">
+        <p>&copy; 2025 - Curso de Introdução à Informática</p>
+        <p>By Sebastian Alencar - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lessonSelect = document.getElementById('lessonSelect');
+            // Set the correct option as selected based on the current page
+            const currentPage = window.location.pathname.split('/').pop();
+            const options = lessonSelect.options;
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].value === currentPage) {
+                    options[i].selected = true;
+                    break;
+                }
+            }
+
+            lessonSelect.addEventListener('change', (event) => {
+                const selectedPage = event.target.value;
+                window.location.href = selectedPage; // Navigate to the selected HTML file
+            });
+
+            // Quiz logic for Aula 6 (specific to this page)
+            const quizFormAula6 = document.getElementById('quizFormAula6');
+            const quizResultsAula6 = document.getElementById('quizResultsAula6');
+            const scoreTextAula6 = document.getElementById('scoreTextAula6');
+            const feedbackListAula6 = document.getElementById('feedbackListAula6');
+
+            const correctAnswersAula6 = {
+                q1_aula6: 'b', // Criar, editar e formatar documentos escritos.
+                q2_aula6: 'c', // Formatar
+                q3_aula6: 'c', // Ctrl + Z
+                q4_aula6: 'c', // Google Docs
+                q5_aula6: 'b'  // Para não perder o que você escreveu se o computador desligar ou travar.
+            };
+
+            quizFormAula6.addEventListener('submit', (event) => {
+                event.preventDefault();
+                let score = 0;
+                feedbackListAula6.innerHTML = '';
+
+                for (const q in correctAnswersAula6) {
+                    const selectedOption = document.querySelector(`input[name="${q}"]:checked`);
+                    const listItem = document.createElement('li');
+                    const questionNumber = q.replace('q', '').replace('_aula6', '');
+                    
+                    if (selectedOption) {
+                        if (selectedOption.value === correctAnswersAula6[q]) {
+                            score++;
+                            listItem.className = 'text-green-400';
+                            listItem.innerHTML = `Questão ${questionNumber}: Correta! ✅`;
+                        } else {
+                            listItem.className = 'text-red-400';
+                            listItem.innerHTML = `Questão ${questionNumber}: Incorreta. A resposta correta era "${correctAnswersAula6[q].toUpperCase()}". ❌`;
+                        }
+                    } else {
+                        listItem.className = 'text-yellow-400';
+                        listItem.innerHTML = `Questão ${questionNumber}: Não respondida. ⚠️`;
+                    }
+                    feedbackListAula6.appendChild(listItem);
+                }
+
+                scoreTextAula6.textContent = `Você acertou ${score} de ${Object.keys(correctAnswersAula6).length} perguntas.`;
+                quizResultsAula6.classList.remove('hidden');
+                quizResultsAula6.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+
+</body>
+</html>

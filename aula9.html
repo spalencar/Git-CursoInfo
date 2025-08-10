@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="imagens/favicon-16x16.png">
+    <title>Aula 9 - Segurança na Internet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Dark Tech (Deep Gray, Dark Blue, Teal, Orange accents) -->
+    <!-- Application Structure Plan: Individual HTML pages for each lesson, navigated via a top fixed dropdown menu. Each page contains its lesson content and a dedicated questionnaire. This structure enhances modularity, allowing for more in-depth content per lesson and clearer separation, improving user experience for a multi-lesson course. -->
+    <!-- Visualization & Content Choices: Report Info: 'O que é a Internet?' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for concept. Report Info: 'Navegadores e Buscadores' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for tools. Report Info: 'Dicas para Navegar com Segurança' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for safety. New: Questionnaire -> Goal: Assess understanding -> Viz: HTML Form with JS validation. Justification: Direct assessment of lesson comprehension. Logo uses <img> tag for better branding and accessibility. No quantitative data was present, so no charts were used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card {
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .card.is-flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .card-face-back {
+            transform: rotateY(180deg);
+        }
+        .icon-glow:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 15px currentColor;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-950 p-4 shadow-lg">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="./imagens/logotipo-ICV.png" alt="Logo Instituto Casa Verde" class="h-8 md:h-10">
+                <p style="color: rgb(3, 255, 3);">INSTITUTO CASA VERDE</p>
+            </div>
+            <div class="relative">
+                <select id="lessonSelect" class="bg-gray-700 text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 cursor-pointer">
+                    <option value="aula1.html">Aula 1 - Introdução</option>
+                    <option value="aula2.html">Aula 2 - Conectando e Cuidando</option>
+                    <option value="aula3.html">Aula 3 - O que são Softwares?</option>
+                    <option value="aula4.html">Aula 4 - Conhecendo o Windows</option>
+                    <option value="aula5.html">Aula 5 - Organizando Arquivos</option>
+                    <option value="aula6.html">Aula 6 - Editores de Texto</option>
+                    <option value="aula7.html">Aula 7 - Multimídia e Online</option>
+                    <option value="aula8.html">Aula 8 - Navegando na Internet</option>
+                    <option value="aula9.html" selected>Aula 9 - Segurança na Internet</option>
+                    <option value="aula10.html">Aula 10 - Criando Conteúdo</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- AULA 9: Segurança na Internet -->
+        <section id="aula9_content" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">AULA 9</h2>
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">Segurança na Internet – Protegendo Você Online</h2>
+                <p class="text-lg text-center text-gray-300 mb-12 max-w-2xl mx-auto">A internet é um lugar incrível, mas como qualquer lugar, precisamos saber como nos proteger. Nesta aula, vamos aprender a ser detetives da segurança online!</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">Senhas Seguras: Seus Segredos Protegidos</h3>
+                        <p class="text-lg text-gray-300 mb-4">Sua senha é como a chave da sua casa digital. Ela precisa ser forte para ninguém conseguir entrar sem permissão!</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">Misture Tudo:</strong> Use letras maiúsculas e minúsculas, números e símbolos (como !, @, #, $).</li>
+                            <li><strong class="text-orange-400">Seja Criativo:</strong> Evite datas de aniversário, nomes ou sequências fáceis (como "123456").</li>
+                            <li><strong class="text-green-400">Senhas Diferentes:</strong> Use uma senha diferente para cada site ou aplicativo importante.</li>
+                            <li><strong class="text-purple-400">Não Compartilhe:</strong> Nunca, jamais, compartilhe sua senha com ninguém, nem mesmo com seus melhores amigos.</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="./imagens/senhas-seguras.webp" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="flex justify-center items-center order-2 lg:order-1">
+                        <img src="./imagens/privacidade-online.jpg" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">Privacidade Online: O que Compartilhar e o que Não</h3>
+                        <p class="text-lg text-gray-300 mb-4">Pense duas vezes antes de compartilhar informações ou fotos online. Uma vez na internet, é difícil apagar!</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">Informações Pessoais:</strong> Nunca publique seu endereço, telefone, nome completo de seus pais ou escola.</li>
+                            <li><strong class="text-orange-400">Fotos:</strong> Cuidado com fotos que mostram onde você mora ou estuda, ou que possam te deixar em situações embaraçosas.</li>
+                            <li><strong class="text-green-400">Configurações de Privacidade:</strong> Se usar redes sociais, peça a um adulto para te ajudar a configurar a privacidade para que só seus amigos vejam suas publicações.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">Cuidado com Links e Cyberbullying</h3>
+                        <p class="text-lg text-gray-300 mb-4">Fique atento a mensagens e links estranhos, e saiba como reagir se alguém te incomodar online.</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">Links Suspeitos:</strong> Não clique em links de pessoas que você não conhece ou que parecem "bons demais para ser verdade".</li>
+                            <li><strong class="text-orange-400">Cyberbullying:</strong> Se alguém te incomodar, te xingar ou te deixar triste online (cyberbullying), não responda! Salve a conversa (tire uma foto da tela) e conte imediatamente a um adulto de confiança.</li>
+                            <li><strong class="text-green-400">Não Aceite Desconhecidos:</strong> Não adicione pessoas que você não conhece na vida real em redes sociais ou jogos.</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="./imagens/cuidados-online.jpeg" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="questionario-aula9" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-8 text-white">Questionário da Aula 9 <br> Segurança na Internet</h2>
+                <form id="quizFormAula9" class="space-y-8">
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">1. Qual a melhor maneira de criar uma senha segura?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q1_aula9" value="a" class="mr-2"> Usar seu nome e data de nascimento.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula9" value="b" class="mr-2"> Usar uma sequência de números fácil (ex: 123456).
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula9" value="c" class="mr-2"> Misturar letras maiúsculas e minúsculas, números e símbolos.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula9" value="d" class="mr-2"> Usar a mesma senha para todos os sites.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">2. É seguro compartilhar seu endereço de casa com desconhecidos online?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q2_aula9" value="a" class="mr-2"> Sim, se eles forem simpáticos.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula9" value="b" class="mr-2"> Apenas se for para um jogo.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula9" value="c" class="mr-2"> Não, nunca.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula9" value="d" class="mr-2"> Só se for para um trabalho escolar.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">3. O que você deve fazer se receber um link de uma pessoa desconhecida que parece estranho?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q3_aula9" value="a" class="mr-2"> Clicar para ver o que é.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula9" value="b" class="mr-2"> Compartilhar com seus amigos.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula9" value="c" class="mr-2"> Ignorar e não clicar.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula9" value="d" class="mr-2"> Responder perguntando o que é.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">4. Se alguém te incomodar ou te xingar online (cyberbullying), qual a primeira coisa a fazer?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q4_aula9" value="a" class="mr-2"> Responder com raiva.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula9" value="b" class="mr-2"> Bloquear a pessoa e contar para um adulto de confiança.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula9" value="c" class="mr-2"> Ignorar e esperar que pare.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula9" value="d" class="mr-2"> Contar para seus amigos online.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">5. Por que é importante ter cuidado com o que você baixa da internet?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q5_aula9" value="a" class="mr-2"> Para não encher o disco rígido muito rápido.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula9" value="b" class="mr-2"> Para evitar que o computador fique lento.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula9" value="c" class="mr-2"> Para não baixar vírus ou programas maliciosos que podem prejudicar seu computador.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula9" value="d" class="mr-2"> Não importa o que você baixa, é sempre seguro.
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-full text-lg transition-transform duration-300 transform hover:scale-105">
+                        Verificar Respostas
+                    </button>
+                </form>
+                <div id="quizResultsAula9" class="mt-8 bg-gray-700 p-6 rounded-lg shadow-lg hidden">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Seus Resultados:</h3>
+                    <p id="scoreTextAula9" class="text-xl text-gray-100 mb-4"></p>
+                    <ul id="feedbackListAula9" class="space-y-2"></ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-950 text-gray-400 text-center p-4">
+        <p>&copy; 2025 - Curso de Introdução à Informática</p>
+        <p>By Sebastian Alencar - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lessonSelect = document.getElementById('lessonSelect');
+            // Set the correct option as selected based on the current page
+            const currentPage = window.location.pathname.split('/').pop();
+            const options = lessonSelect.options;
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].value === currentPage) {
+                    options[i].selected = true;
+                    break;
+                }
+            }
+
+            lessonSelect.addEventListener('change', (event) => {
+                const selectedPage = event.target.value;
+                window.location.href = selectedPage; // Navigate to the selected HTML file
+            });
+
+            // Quiz logic for Aula 9 (specific to this page)
+            const quizFormAula9 = document.getElementById('quizFormAula9');
+            const quizResultsAula9 = document.getElementById('quizResultsAula9');
+            const scoreTextAula9 = document.getElementById('scoreTextAula9');
+            const feedbackListAula9 = document.getElementById('feedbackListAula9');
+
+            const correctAnswersAula9 = {
+                q1_aula9: 'c', // Misturar letras maiúsculas e minúsculas, números e símbolos.
+                q2_aula9: 'c', // Não, nunca.
+                q3_aula9: 'c', // Ignorar e não clicar.
+                q4_aula9: 'b', // Bloquear a pessoa e contar para um adulto de confiança.
+                q5_aula9: 'c'  // Para não baixar vírus ou programas maliciosos que podem prejudicar seu computador.
+            };
+
+            quizFormAula9.addEventListener('submit', (event) => {
+                event.preventDefault();
+                let score = 0;
+                feedbackListAula9.innerHTML = '';
+
+                for (const q in correctAnswersAula9) {
+                    const selectedOption = document.querySelector(`input[name="${q}"]:checked`);
+                    const listItem = document.createElement('li');
+                    const questionNumber = q.replace('q', '').replace('_aula9', '');
+                    
+                    if (selectedOption) {
+                        if (selectedOption.value === correctAnswersAula9[q]) {
+                            score++;
+                            listItem.className = 'text-green-400';
+                            listItem.innerHTML = `Questão ${questionNumber}: Correta! ✅`;
+                        } else {
+                            listItem.className = 'text-red-400';
+                            listItem.innerHTML = `Questão ${questionNumber}: Incorreta. A resposta correta era "${correctAnswersAula9[q].toUpperCase()}". ❌`;
+                        }
+                    } else {
+                        listItem.className = 'text-yellow-400';
+                        listItem.innerHTML = `Questão ${questionNumber}: Não respondida. ⚠️`;
+                    }
+                    feedbackListAula9.appendChild(listItem);
+                }
+
+                scoreTextAula9.textContent = `Você acertou ${score} de ${Object.keys(correctAnswersAula9).length} perguntas.`;
+                quizResultsAula9.classList.remove('hidden');
+                quizResultsAula9.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+
+</body>
+</html>

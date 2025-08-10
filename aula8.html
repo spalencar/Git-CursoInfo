@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="imagens/favicon-16x16.png">
+    <title>Aula 8 - Navegando na Internet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Dark Tech (Deep Gray, Dark Blue, Teal, Orange accents) -->
+    <!-- Application Structure Plan: Individual HTML pages for each lesson, navigated via a top fixed dropdown menu. Each page contains its lesson content and a dedicated questionnaire. This structure enhances modularity, allowing for more in-depth content per lesson and clearer separation, improving user experience for a multi-lesson course. -->
+    <!-- Visualization & Content Choices: Report Info: 'O que é a Internet?' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for concept. Report Info: 'Navegadores e Buscadores' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for tools. Report Info: 'Dicas para Navegar com Segurança' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for safety. New: Questionnaire -> Goal: Assess understanding -> Viz: HTML Form with JS validation. Justification: Direct assessment of lesson comprehension. Logo uses <img> tag for better branding and accessibility. No quantitative data was present, so no charts were used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card {
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .card.is-flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .card-face-back {
+            transform: rotateY(180deg);
+        }
+        .icon-glow:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 15px currentColor;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-950 p-4 shadow-lg">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="./imagens/logotipo-ICV.png" alt="Logo Instituto Casa Verde" class="h-8 md:h-10">
+                <p style="color: rgb(3, 255, 3);">INSTITUTO CASA VERDE</p>
+            </div>
+            <div class="relative">
+                <select id="lessonSelect" class="bg-gray-700 text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 cursor-pointer">
+                    <option value="aula1.html">Aula 1 - Introdução</option>
+                    <option value="aula2.html">Aula 2 - Conectando e Cuidando</option>
+                    <option value="aula3.html">Aula 3 - O que são Softwares?</option>
+                    <option value="aula4.html">Aula 4 - Conhecendo o Windows</option>
+                    <option value="aula5.html">Aula 5 - Organizando Arquivos</option>
+                    <option value="aula6.html">Aula 6 - Editores de Texto</option>
+                    <option value="aula7.html">Aula 7 - Multimídia e Online</option>
+                    <option value="aula8.html" selected>Aula 8 - Navegando na Internet</option>
+                    <option value="aula9.html">Aula 9 - Segurança na Internet</option>
+                    <option value="aula10.html">Aula 10 - Criando Conteúdo</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- AULA 8: Navegando na Internet -->
+        <section id="aula8_content" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">AULA 8</h2>
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">Navegando na Internet – Explorando a Web com Segurança</h2>
+                <p class="text-lg text-center text-gray-300 mb-12 max-w-2xl mx-auto">Nesta aula, vamos aprender a explorar o vasto mundo da internet, como encontrar o que você procura e, o mais importante, como navegar com inteligência e segurança!</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">O que é a Internet?</h3>
+                        <p class="text-lg text-gray-300 mb-4">A internet é como uma teia gigante que conecta computadores e pessoas de todo o mundo. É um lugar onde você pode aprender, se divertir, se comunicar e descobrir coisas novas. Pense nela como uma biblioteca mundial, um cinema gigante e um correio super rápido, tudo junto!</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">Informação:</strong> Encontre notícias, pesquisas para a escola, receitas e muito mais.</li>
+                            <li><strong class="text-orange-400">Entretenimento:</strong> Assista vídeos, ouça músicas, jogue online.</li>
+                            <li><strong class="text-green-400">Comunicação:</strong> Converse com amigos e familiares, envie e-mails.</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="./imagens/conceito-de-internet.webp" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="flex justify-center items-center order-2 lg:order-1">
+                        <img src="./imagens/navegadores-web.jpg" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">Navegadores e Buscadores: Seus Guias na Web</h3>
+                        <p class="text-lg text-gray-300 mb-4">Para acessar a internet, você precisa de duas ferramentas principais:</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">Navegador de Internet:</strong> É o programa que permite que você veja as páginas da web. Os mais comuns são Google Chrome, Mozilla Firefox, Microsoft Edge e Safari.</li>
+                            <li><strong class="text-orange-400">Buscador (ou Motor de Busca):</strong> É um site que te ajuda a encontrar informações na internet. Você digita o que procura, e ele mostra uma lista de sites relacionados. O Google é o buscador mais famoso.</li>
+                        </ul>
+                        <p class="text-lg text-gray-300 mt-4">Para usar um buscador, basta abrir seu navegador e digitar o endereço do buscador (ex: www.google.com) ou usar a barra de pesquisa que já vem no navegador.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">Dicas para Navegar com Segurança</h3>
+                        <p class="text-lg text-gray-300 mb-4">A internet é ótima, mas é preciso ter cuidado. Siga estas dicas para se manter seguro:</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">Não Clique em Tudo:</strong> Se um link parecer estranho ou uma mensagem for muito boa para ser verdade, não clique!</li>
+                            <li><strong class="text-orange-400">Não Compartilhe Informações Pessoais:</strong> Nunca dê seu nome completo, endereço, telefone ou senhas para desconhecidos online.</li>
+                            <li><strong class="text-green-400">Peça Ajuda:</strong> Se vir algo que te assusta ou te deixa desconfortável, conte para um adulto de confiança.</li>
+                            <li><strong class="text-purple-400">Cuidado com Downloads:</strong> Só baixe arquivos de sites que você conhece e confia.</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="./imagens/seguranca-online.jpg" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="questionario-aula8" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-8 text-white">Questionário da Aula 8 <br> Navegando na Internet</h2>
+                <form id="quizFormAula8" class="space-y-8">
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">1. O que é a internet?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q1_aula8" value="a" class="mr-2"> Um tipo de jogo online.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula8" value="b" class="mr-2"> Uma rede gigante que conecta computadores e pessoas de todo o mundo.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula8" value="c" class="mr-2"> Um programa para escrever textos.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula8" value="d" class="mr-2"> O hardware do computador.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">2. Qual programa você usa para "ver" as páginas da web?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q2_aula8" value="a" class="mr-2"> Editor de imagens.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula8" value="b" class="mr-2"> Navegador de internet.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula8" value="c" class="mr-2"> Reprodutor de vídeo.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula8" value="d" class="mr-2"> Bloco de Notas.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">3. Qual site te ajuda a encontrar informações na internet, mostrando uma lista de sites relacionados?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q3_aula8" value="a" class="mr-2"> Um site de notícias.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula8" value="b" class="mr-2"> Um buscador (motor de busca).
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula8" value="c" class="mr-2"> Uma rede social.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula8" value="d" class="mr-2"> Um site de jogos.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">4. É seguro compartilhar seu nome completo e endereço com desconhecidos na internet?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q4_aula8" value="a" class="mr-2"> Sim, sempre.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula8" value="b" class="mr-2"> Apenas se eles pedirem.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula8" value="c" class="mr-2"> Não, nunca.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula8" value="d" class="mr-2"> Só se for para um jogo online.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">5. Se um link parecer estranho ou uma mensagem for muito boa para ser verdade, o que você deve fazer?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q5_aula8" value="a" class="mr-2"> Clicar rapidamente para ver o que é.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula8" value="b" class="mr-2"> Compartilhar com todos os seus amigos.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula8" value="c" class="mr-2"> Ignorar e, se tiver dúvidas, perguntar a um adulto de confiança.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula8" value="d" class="mr-2"> Baixar o arquivo imediatamente.
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-full text-lg transition-transform duration-300 transform hover:scale-105">
+                        Verificar Respostas
+                    </button>
+                </form>
+                <div id="quizResultsAula8" class="mt-8 bg-gray-700 p-6 rounded-lg shadow-lg hidden">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Seus Resultados:</h3>
+                    <p id="scoreTextAula8" class="text-xl text-gray-100 mb-4"></p>
+                    <ul id="feedbackListAula8" class="space-y-2"></ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-950 text-gray-400 text-center p-4">
+        <p>&copy; 2025 - Curso de Introdução à Informática</p>
+        <p>By Sebastian Alencar - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lessonSelect = document.getElementById('lessonSelect');
+            // Set the correct option as selected based on the current page
+            const currentPage = window.location.pathname.split('/').pop();
+            const options = lessonSelect.options;
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].value === currentPage) {
+                    options[i].selected = true;
+                    break;
+                }
+            }
+
+            lessonSelect.addEventListener('change', (event) => {
+                const selectedPage = event.target.value;
+                window.location.href = selectedPage; // Navigate to the selected HTML file
+            });
+
+            // Quiz logic for Aula 8 (specific to this page)
+            const quizFormAula8 = document.getElementById('quizFormAula8');
+            const quizResultsAula8 = document.getElementById('quizResultsAula8');
+            const scoreTextAula8 = document.getElementById('scoreTextAula8');
+            const feedbackListAula8 = document.getElementById('feedbackListAula8');
+
+            const correctAnswersAula8 = {
+                q1_aula8: 'b', // Uma rede gigante que conecta computadores e pessoas de todo o mundo.
+                q2_aula8: 'b', // Navegador de internet.
+                q3_aula8: 'b', // Um buscador (motor de busca).
+                q4_aula8: 'c', // Não, nunca.
+                q5_aula8: 'c'  // Ignorar e, se tiver dúvidas, perguntar a um adulto de confiança.
+            };
+
+            quizFormAula8.addEventListener('submit', (event) => {
+                event.preventDefault();
+                let score = 0;
+                feedbackListAula8.innerHTML = '';
+
+                for (const q in correctAnswersAula8) {
+                    const selectedOption = document.querySelector(`input[name="${q}"]:checked`);
+                    const listItem = document.createElement('li');
+                    const questionNumber = q.replace('q', '').replace('_aula8', '');
+                    
+                    if (selectedOption) {
+                        if (selectedOption.value === correctAnswersAula8[q]) {
+                            score++;
+                            listItem.className = 'text-green-400';
+                            listItem.innerHTML = `Questão ${questionNumber}: Correta! ✅`;
+                        } else {
+                            listItem.className = 'text-red-400';
+                            listItem.innerHTML = `Questão ${questionNumber}: Incorreta. A resposta correta era "${correctAnswersAula8[q].toUpperCase()}". ❌`;
+                        }
+                    } else {
+                        listItem.className = 'text-yellow-400';
+                        listItem.innerHTML = `Questão ${questionNumber}: Não respondida. ⚠️`;
+                    }
+                    feedbackListAula8.appendChild(listItem);
+                }
+
+                scoreTextAula8.textContent = `Você acertou ${score} de ${Object.keys(correctAnswersAula8).length} perguntas.`;
+                quizResultsAula8.classList.remove('hidden');
+                quizResultsAula8.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+
+</body>
+</html>

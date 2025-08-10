@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="imagens/favicon-16x16.png">
+    <title>Aula 5 - Organizando Arquivos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Dark Tech (Deep Gray, Dark Blue, Teal, Orange accents) -->
+    <!-- Application Structure Plan: Individual HTML pages for each lesson, navigated via a top fixed dropdown menu. Each page contains its lesson content and a dedicated questionnaire. This structure enhances modularity, allowing for more in-depth content per lesson and clearer separation, improving user experience for a multi-lesson course. -->
+    <!-- Visualization & Content Choices: Report Info: 'Explorador de Arquivos' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for interface. Report Info: 'Criando e Gerenciando Pastas e Arquivos' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for file operations. New: Questionnaire -> Goal: Assess understanding -> Viz: HTML Form with JS validation. Justification: Direct assessment of lesson comprehension. Logo uses <img> tag for better branding and accessibility. No quantitative data was present, so no charts were used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card {
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .card.is-flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .card-face-back {
+            transform: rotateY(180deg);
+        }
+        .icon-glow:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 15px currentColor;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-950 p-4 shadow-lg">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="./imagens/logotipo-ICV.png" alt="Logo Instituto Casa Verde" class="h-8 md:h-10">
+                <p style="color: rgb(3, 255, 3);">INSTITUTO CASA VERDE</p>
+            </div>
+            <div class="relative">
+                <select id="lessonSelect" class="bg-gray-700 text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 cursor-pointer">
+                    <option value="aula1.html">Aula 1 - Introdução</option>
+                    <option value="aula2.html">Aula 2 - Conectando e Cuidando</option>
+                    <option value="aula3.html">Aula 3 - O que são Softwares?</option>
+                    <option value="aula4.html">Aula 4 - Conhecendo o Windows</option>
+                    <option value="aula5.html" selected>Aula 5 - Organizando Arquivos</option>
+                    <option value="aula6.html">Aula 6 - Editores de Texto</option>
+                    <option value="aula7.html">Aula 7 - Multimídia e Online</option>
+                    <option value="aula8.html">Aula 8 - Navegando na Internet</option>
+                    <option value="aula9.html">Aula 9 - Segurança na Internet</option>
+                    <option value="aula10.html">Aula 10 - Criando Conteúdo</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- AULA 5: Organizando Arquivos -->
+        <section id="aula5_content" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">AULA 5</h2>
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">Organizando Arquivos e Pastas no Windows</h2>
+                <p class="text-lg text-center text-gray-300 mb-12 max-w-2xl mx-auto">Nesta aula, vamos aprender a organizar seus arquivos e pastas no Windows, como se fosse um armário super arrumado para suas coisas digitais!</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">Explorador de Arquivos: Seu Organizador Pessoal</h3>
+                        <p class="text-lg text-gray-300 mb-4">O **Explorador de Arquivos** é a ferramenta do Windows que te ajuda a ver, encontrar e organizar todos os seus arquivos e pastas. Pense nele como uma biblioteca onde cada prateleira é uma pasta e cada livro é um arquivo.</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">Como Abrir:</strong> Você pode clicar no ícone de pasta amarela na Barra de Tarefas ou pesquisar por "Explorador de Arquivos" no Menu Iniciar.</li>
+                            <li><strong class="text-orange-400">Navegação:</strong> No lado esquerdo, você vê as principais pastas (Documentos, Imagens, Downloads, etc.) e seus discos. No lado direito, o conteúdo da pasta que você selecionou.</li>
+                            <li><strong class="text-green-400">Estrutura de Pastas:</strong> É como uma árvore. Você tem pastas principais e, dentro delas, pode criar subpastas para organizar ainda mais.</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="./imagens/windows-explorer2.png" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="flex justify-center items-center order-2 lg:order-1">
+                        <img src="./imagens/copiar_mover_arquivos.png" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">Criando e Gerenciando Pastas e Arquivos</h3>
+                        <p class="text-lg text-gray-300 mb-4">Aprender a criar e organizar é fundamental para não se perder nos seus documentos digitais:</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">Criar Nova Pasta:</strong> No Explorador de Arquivos, clique com o botão direito do mouse em um espaço vazio e escolha "Novo" > "Pasta". Dê um nome claro!</li>
+                            <li><strong class="text-orange-400">Renomear:</strong> Clique com o botão direito no arquivo ou pasta e escolha "Renomear".</li>
+                            <li><strong class="text-green-400">Mover e Copiar:</strong>
+                                <ul class="list-circle list-inside ml-4">
+                                    <li><strong class="text-green-300">Mover:</strong> 'Arrastar e soltar' o arquivo/pasta para a nova localização. Ele sai do lugar original.</li>
+                                    <li><strong class="text-green-300">Copiar:</strong> Clique com o botão direito, escolha "Copiar", vá para a nova pasta, clique com o botão direito e escolha "Colar". O arquivo fica nos dois lugares.</li>
+                                </ul>
+                            </li>
+                            <li><strong class="text-purple-400">Apagar e Lixeira:</strong> Clique com o botão direito e escolha "Excluir". O arquivo vai para a Lixeira, onde você pode recuperá-lo se precisar, antes de esvaziá-la.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="questionario-aula5" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-8 text-white">Questionário da Aula 5 <br> Organizando Arquivos</h2>
+                <form id="quizFormAula5" class="space-y-8">
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">1. Qual ferramenta do Windows ajuda a organizar seus arquivos e pastas?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q1_aula5" value="a" class="mr-2"> Microsoft Word
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula5" value="b" class="mr-2"> Explorador de Arquivos
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula5" value="c" class="mr-2"> Menu Iniciar
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula5" value="d" class="mr-2"> Barra de Tarefas
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">2. Para que serve a "Lixeira" no Windows?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q2_aula5" value="a" class="mr-2"> Armazenar programas instalados.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula2" value="b" class="mr-2"> Guardar arquivos que você não quer mais, mas que podem ser recuperados.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula2" value="c" class="mr-2"> Fazer backup de todos os seus arquivos.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula2" value="d" class="mr-2"> Conectar dispositivos USB.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">3. Qual a diferença entre "Mover" e "Copiar" um arquivo?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q3_aula5" value="a" class="mr-2"> Mover cria uma cópia, Copiar move o original.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula5" value="b" class="mr-2"> Mover tira o arquivo do lugar original, Copiar deixa uma cópia nos dois lugares.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula5" value="c" class="mr-2"> Não há diferença, são a mesma coisa.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula5" value="d" class="mr-2"> Mover é para pastas, Copiar é para arquivos.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">4. Como você cria uma nova pasta no Explorador de Arquivos?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q4_aula5" value="a" class="mr-2"> Clicando duas vezes em um arquivo.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula5" value="b" class="mr-2"> Arrastando um arquivo para a Lixeira.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula5" value="c" class="mr-2"> Clicando com o botão direito em um espaço vazio e escolhendo "Novo" > "Pasta".
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula5" value="d" class="mr-2"> Apertando a tecla "Enter".
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">5. Por que é importante dar nomes claros às suas pastas e arquivos?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q5_aula5" value="a" class="mr-2"> Para o computador funcionar mais rápido.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula5" value="b" class="mr-2"> Para que outras pessoas não consigam abri-los.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula5" value="c" class="mr-2"> Para que você e outras pessoas possam encontrá-los facilmente depois.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula5" value="d" class="mr-2"> Não é importante, o nome não faz diferença.
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-full text-lg transition-transform duration-300 transform hover:scale-105">
+                        Verificar Respostas
+                    </button>
+                </form>
+                <div id="quizResultsAula5" class="mt-8 bg-gray-700 p-6 rounded-lg shadow-lg hidden">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Seus Resultados:</h3>
+                    <p id="scoreTextAula5" class="text-xl text-gray-100 mb-4"></p>
+                    <ul id="feedbackListAula5" class="space-y-2"></ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-950 text-gray-400 text-center p-4">
+        <p>&copy; 2025 - Curso de Introdução à Informática</p>
+        <p>By Sebastian Alencar - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lessonSelect = document.getElementById('lessonSelect');
+            // Set the correct option as selected based on the current page
+            const currentPage = window.location.pathname.split('/').pop();
+            const options = lessonSelect.options;
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].value === currentPage) {
+                    options[i].selected = true;
+                    break;
+                }
+            }
+
+            lessonSelect.addEventListener('change', (event) => {
+                const selectedPage = event.target.value;
+                window.location.href = selectedPage; // Navigate to the selected HTML file
+            });
+
+            // Quiz logic for Aula 5 (specific to this page)
+            const quizFormAula5 = document.getElementById('quizFormAula5');
+            const quizResultsAula5 = document.getElementById('quizResultsAula5');
+            const scoreTextAula5 = document.getElementById('scoreTextAula5');
+            const feedbackListAula5 = document.getElementById('feedbackListAula5');
+
+            const correctAnswersAula5 = {
+                q1_aula5: 'b', // Explorador de Arquivos
+                q2_aula5: 'b', // Guardar arquivos que você não quer mais, mas que podem ser recuperados.
+                q3_aula5: 'b', // Mover tira o arquivo do lugar original, Copiar deixa uma cópia nos dois lugares.
+                q4_aula5: 'c', // Clicando com o botão direito em um espaço vazio e escolhendo "Novo" > "Pasta".
+                q5_aula5: 'c'  // Para que você e outras pessoas possam encontrá-los facilmente depois.
+            };
+
+            quizFormAula5.addEventListener('submit', (event) => {
+                event.preventDefault();
+                let score = 0;
+                feedbackListAula5.innerHTML = '';
+
+                for (const q in correctAnswersAula5) {
+                    const selectedOption = document.querySelector(`input[name="${q}"]:checked`);
+                    const listItem = document.createElement('li');
+                    const questionNumber = q.replace('q', '').replace('_aula5', '');
+                    
+                    if (selectedOption) {
+                        if (selectedOption.value === correctAnswersAula5[q]) {
+                            score++;
+                            listItem.className = 'text-green-400';
+                            listItem.innerHTML = `Questão ${questionNumber}: Correta! ✅`;
+                        } else {
+                            listItem.className = 'text-red-400';
+                            listItem.innerHTML = `Questão ${questionNumber}: Incorreta. A resposta correta era "${correctAnswersAula5[q].toUpperCase()}". ❌`;
+                        }
+                    } else {
+                        listItem.className = 'text-yellow-400';
+                        listItem.innerHTML = `Questão ${questionNumber}: Não respondida. ⚠️`;
+                    }
+                    feedbackListAula5.appendChild(listItem);
+                }
+
+                scoreTextAula5.textContent = `Você acertou ${score} de ${Object.keys(correctAnswersAula5).length} perguntas.`;
+                quizResultsAula5.classList.remove('hidden');
+                quizResultsAula5.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+
+</body>
+</html>

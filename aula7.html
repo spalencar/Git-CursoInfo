@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="imagens/favicon-16x16.png">
+    <title>Aula 7 - Multimídia e Online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Dark Tech (Deep Gray, Dark Blue, Teal, Orange accents) -->
+    <!-- Application Structure Plan: Individual HTML pages for each lesson, navigated via a top fixed dropdown menu. Each page contains its lesson content and a dedicated questionnaire. This structure enhances modularity, allowing for more in-depth content per lesson and clearer separation, improving user experience for a multi-lesson course. -->
+    <!-- Visualization & Content Choices: Report Info: 'O que é Multimídia?' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for concept. Report Info: 'Reproduzindo Multimídia' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for media players. Report Info: 'O Mundo Online' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for internet. New: Questionnaire -> Goal: Assess understanding -> Viz: HTML Form with JS validation. Justification: Direct assessment of lesson comprehension. Logo uses <img> tag for better branding and accessibility. No quantitative data was present, so no charts were used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card {
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .card.is-flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .card-face-back {
+            transform: rotateY(180deg);
+        }
+        .icon-glow:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 15px currentColor;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-950 p-4 shadow-lg">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="./imagens/logotipo-ICV.png" alt="Logo Instituto Casa Verde" class="h-8 md:h-10">
+                <p style="color: rgb(3, 255, 3);">INSTITUTO CASA VERDE</p>
+            </div>
+            <div class="relative">
+                <select id="lessonSelect" class="bg-gray-700 text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 cursor-pointer">
+                    <option value="aula1.html">Aula 1 - Introdução</option>
+                    <option value="aula2.html">Aula 2 - Conectando e Cuidando</option>
+                    <option value="aula3.html">Aula 3 - O que são Softwares?</option>
+                    <option value="aula4.html">Aula 4 - Conhecendo o Windows</option>
+                    <option value="aula5.html">Aula 5 - Organizando Arquivos</option>
+                    <option value="aula6.html">Aula 6 - Editores de Texto</option>
+                    <option value="aula7.html" selected>Aula 7 - Multimídia e Online</option>
+                    <option value="aula8.html">Aula 8 - Navegando na Internet</option>
+                    <option value="aula9.html">Aula 9 - Segurança na Internet</option>
+                    <option value="aula10.html">Aula 10 - Criando Conteúdo</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- AULA 7: Multimídia e Online -->
+        <section id="aula7_content" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">AULA 7</h2>
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">Multimídia e Online – Explorando o Mundo Digital</h2>
+                <p class="text-lg text-center text-gray-300 mb-12 max-w-2xl mx-auto">Nesta aula, vamos mergulhar no mundo da multimídia (fotos, músicas, vídeos) e dar os primeiros passos para entender como o computador nos conecta ao vasto universo online!</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">O que é Multimídia?</h3>
+                        <p class="text-lg text-gray-300 mb-4">Multimídia é a combinação de diferentes formas de conteúdo, como texto, imagens, áudio e vídeo. Seu computador é uma central multimídia incrível! Você pode ver fotos da família, ouvir suas músicas favoritas e assistir a vídeos educativos ou de entretenimento.</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">Imagens:</strong> Fotos que você tira, desenhos, gráficos.</li>
+                            <li><strong class="text-orange-400">Áudio:</strong> Músicas, podcasts, gravações de voz.</li>
+                            <li><strong class="text-green-400">Vídeo:</strong> Filmes, séries, vídeos do YouTube, videochamadas.</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="./imagens/multimedia-icons-digital.png" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="flex justify-center items-center order-2 lg:order-1">
+                        <img src="./imagens/reprodutores-de-midia.jpg" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">Reproduzindo Multimídia no Computador</h3>
+                        <p class="text-lg text-gray-300 mb-4">Para ver ou ouvir seus arquivos multimídia, você usa programas específicos:</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">Visualizador de Fotos:</strong> Para ver suas imagens (geralmente abre automaticamente ao clicar duas vezes na foto).</li>
+                            <li><strong class="text-orange-400">Reprodutor de Música/Vídeo:</strong> Programas como o Windows Media Player, VLC Media Player ou aplicativos de streaming como Spotify e YouTube.</li>
+                            <li><strong class="text-green-400">Controles:</strong> A maioria tem botões de "Play", "Pause", "Avançar", "Voltar" e controle de volume.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">O Mundo Online: Conectando-se à Internet</h3>
+                        <p class="text-lg text-gray-300 mb-4">A internet é uma rede gigante que conecta computadores em todo o mundo. É por ela que você acessa sites, redes sociais, assiste vídeos online e muito mais!</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">Navegador de Internet:</strong> É o programa que você usa para "navegar" na internet (ex: Google Chrome, Mozilla Firefox, Microsoft Edge).</li>
+                            <li><strong class="text-orange-400">Wi-Fi e Cabo de Rede:</strong> São as formas de conectar seu computador à internet. Wi-Fi é sem fio, cabo de rede é com fio (mais estável).</li>
+                            <li><strong class="text-green-400">Sites e Endereços:</strong> Cada página na internet tem um endereço único (URL), como www.google.com.</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="./imagens/mundo-online.jpg" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="questionario-aula7" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-8 text-white">Questionário da Aula 7</h2>
+                <h2 class="text-4xl font-bold text-center mb-8 text-white">Multimídia e Online</h2>
+                <form id="quizFormAula7" class="space-y-8">
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">1. O que é multimídia?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q1_aula7" value="a" class="mr-2"> Apenas texto.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula7" value="b" class="mr-2"> A combinação de diferentes formas de conteúdo (texto, imagens, áudio, vídeo).
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula7" value="c" class="mr-2"> Somente vídeos.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula7" value="d" class="mr-2"> A conexão com a internet.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">2. Qual programa você usa para "navegar" na internet?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q2_aula7" value="a" class="mr-2"> Editor de texto.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula7" value="b" class="mr-2"> Reprodutor de música.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula7" value="c" class="mr-2"> Navegador de internet.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula7" value="d" class="mr-2"> Explorador de Arquivos.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">3. Qual destas é uma forma de conectar seu computador à internet sem fios?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q3_aula7" value="a" class="mr-2"> Cabo de rede.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula7" value="b" class="mr-2"> USB.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula7" value="c" class="mr-2"> Wi-Fi.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula7" value="d" class="mr-2"> HDMI.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">4. Se você quer assistir a um vídeo no seu computador, qual tipo de programa você usaria?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q4_aula7" value="a" class="mr-2"> Editor de texto.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula7" value="b" class="mr-2"> Reprodutor de vídeo.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula7" value="c" class="mr-2"> Explorador de Arquivos.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula7" value="d" class="mr-2"> Bloco de Notas.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">5. O que é uma URL?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q5_aula7" value="a" class="mr-2"> Um tipo de arquivo de imagem.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula7" value="b" class="mr-2"> O nome de um programa de computador.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula7" value="c" class="mr-2"> O endereço único de uma página na internet.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula7" value="d" class="mr-2"> Um tipo de cabo para conectar o monitor.
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-full text-lg transition-transform duration-300 transform hover:scale-105">
+                        Verificar Respostas
+                    </button>
+                </form>
+                <div id="quizResultsAula7" class="mt-8 bg-gray-700 p-6 rounded-lg shadow-lg hidden">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Seus Resultados:</h3>
+                    <p id="scoreTextAula7" class="text-xl text-gray-100 mb-4"></p>
+                    <ul id="feedbackListAula7" class="space-y-2"></ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-950 text-gray-400 text-center p-4">
+        <p>&copy; 2025 - Curso de Introdução à Informática</p>
+        <p>By Sebastian Alencar - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lessonSelect = document.getElementById('lessonSelect');
+            // Set the correct option as selected based on the current page
+            const currentPage = window.location.pathname.split('/').pop();
+            const options = lessonSelect.options;
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].value === currentPage) {
+                    options[i].selected = true;
+                    break;
+                }
+            }
+
+            lessonSelect.addEventListener('change', (event) => {
+                const selectedPage = event.target.value;
+                window.location.href = selectedPage; // Navigate to the selected HTML file
+            });
+
+            // Quiz logic for Aula 7 (specific to this page)
+            const quizFormAula7 = document.getElementById('quizFormAula7');
+            const quizResultsAula7 = document.getElementById('quizResultsAula7');
+            const scoreTextAula7 = document.getElementById('scoreTextAula7');
+            const feedbackListAula7 = document.getElementById('feedbackListAula7');
+
+            const correctAnswersAula7 = {
+                q1_aula7: 'b', // A combinação de diferentes formas de conteúdo (texto, imagens, áudio, vídeo).
+                q2_aula7: 'c', // Navegador de internet.
+                q3_aula7: 'c', // Wi-Fi.
+                q4_aula7: 'b', // Reprodutor de vídeo.
+                q5_aula7: 'c'  // O endereço único de uma página na internet.
+            };
+
+            quizFormAula7.addEventListener('submit', (event) => {
+                event.preventDefault();
+                let score = 0;
+                feedbackListAula7.innerHTML = '';
+
+                for (const q in correctAnswersAula7) {
+                    const selectedOption = document.querySelector(`input[name="${q}"]:checked`);
+                    const listItem = document.createElement('li');
+                    const questionNumber = q.replace('q', '').replace('_aula7', '');
+                    
+                    if (selectedOption) {
+                        if (selectedOption.value === correctAnswersAula7[q]) {
+                            score++;
+                            listItem.className = 'text-green-400';
+                            listItem.innerHTML = `Questão ${questionNumber}: Correta! ✅`;
+                        } else {
+                            listItem.className = 'text-red-400';
+                            listItem.innerHTML = `Questão ${questionNumber}: Incorreta. A resposta correta era "${correctAnswersAula7[q].toUpperCase()}". ❌`;
+                        }
+                    } else {
+                        listItem.className = 'text-yellow-400';
+                        listItem.innerHTML = `Questão ${questionNumber}: Não respondida. ⚠️`;
+                    }
+                    feedbackListAula7.appendChild(listItem);
+                }
+
+                scoreTextAula7.textContent = `Você acertou ${score} de ${Object.keys(correctAnswersAula7).length} perguntas.`;
+                quizResultsAula7.classList.remove('hidden');
+                quizResultsAula7.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+
+</body>
+</html>

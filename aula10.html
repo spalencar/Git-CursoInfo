@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="imagens/favicon-16x16.png">
+    <title>Aula 10 - Criando Conteúdo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Dark Tech (Deep Gray, Dark Blue, Teal, Orange accents) -->
+    <!-- Application Structure Plan: Individual HTML pages for each lesson, navigated via a top fixed dropdown menu. Each page contains its lesson content and a dedicated questionnaire. This structure enhances modularity, allowing for more in-depth content per lesson and clearer separation, improving user experience for a multi-lesson course. -->
+    <!-- Visualization & Content Choices: Report Info: 'Criando Conteúdo Digital' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for concept. Report Info: 'Ferramentas para Criação' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for tools. Report Info: 'Compartilhando Suas Criações' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for sharing. New: Questionnaire -> Goal: Assess understanding -> Viz: HTML Form with JS validation. Justification: Direct assessment of lesson comprehension. Logo uses <img> tag for better branding and accessibility. No quantitative data was present, so no charts were used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card {
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .card.is-flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .card-face-back {
+            transform: rotateY(180deg);
+        }
+        .icon-glow:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 15px currentColor;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-950 p-4 shadow-lg">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="./imagens/logotipo-ICV.png" alt="Logo Instituto Casa Verde" class="h-8 md:h-10">
+            </div>
+            <div class="relative">
+                <select id="lessonSelect" class="bg-gray-700 text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 cursor-pointer">
+                    <option value="aula1.html">Aula 1 - Introdução</option>
+                    <option value="aula2.html">Aula 2 - Conectando e Cuidando</option>
+                    <option value="aula3.html">Aula 3 - O que são Softwares?</option>
+                    <option value="aula4.html">Aula 4 - Conhecendo o Windows</option>
+                    <option value="aula5.html">Aula 5 - Organizando Arquivos</option>
+                    <option value="aula6.html">Aula 6 - Editores de Texto</option>
+                    <option value="aula7.html">Aula 7 - Multimídia e Online</option>
+                    <option value="aula8.html">Aula 8 - Navegando na Internet</option>
+                    <option value="aula9.html">Aula 9 - Segurança na Internet</option>
+                    <option value="aula10.html" selected>Aula 10 - Criando Conteúdo</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- AULA 10: Criando Conteúdo -->
+        <section id="aula10_content" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">AULA 10</h2>
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">Criando Conteúdo – De Ideias a Criações Digitais</h2>
+                <p class="text-lg text-center text-gray-300 mb-12 max-w-2xl mx-auto">Chegamos à nossa última aula! Agora que você conhece o básico do computador e da internet, vamos explorar como você pode usar a tecnologia para transformar suas ideias em conteúdo digital incrível!</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">O que é Criar Conteúdo Digital?</h3>
+                        <p class="text-lg text-gray-300 mb-4">Criar conteúdo digital significa usar o computador para produzir algo novo, seja um texto, uma imagem, um áudio ou um vídeo. É como ser um artista, um escritor ou um cineasta, mas usando ferramentas digitais!</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">Textos e Histórias:</strong> Escreva poemas, contos, trabalhos escolares.</li>
+                            <li><strong class="text-orange-400">Imagens e Desenhos:</strong> Crie artes digitais, edite fotos.</li>
+                            <li><strong class="text-green-400">Apresentações:</strong> Monte slides para trabalhos da escola ou para mostrar suas ideias.</li>
+                            <li><strong class="text-purple-400">Vídeos e Animações:</strong> Faça pequenos vídeos com seus amigos, edite filmes caseiros.</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="./imagens/criar-conteudo-digital.avif" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="flex justify-center items-center order-2 lg:order-1">
+                        <img src="./imagens/ferramentas-de-criacao.jpg" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">Ferramentas para Suas Criações</h3>
+                        <p class="text-lg text-gray-300 mb-4">Existem muitos programas que podem te ajudar a criar:</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">Para Textos:</strong> Microsoft Word, Google Docs (já vimos!).</li>
+                            <li><strong class="text-orange-400">Para Desenhos e Imagens:</strong> Paint (já vem no Windows), Paint 3D, GIMP (gratuito), Canva (online e fácil de usar).</li>
+                            <li><strong class="text-green-400">Para Apresentações:</strong> Microsoft PowerPoint, Google Slides.</li>
+                            <li><strong class="text-purple-400">Para Vídeos:</strong> Windows Movie Maker (se disponível), editores online simples como o CapCut Online.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">Compartilhando Suas Criações com o Mundo</h3>
+                        <p class="text-lg text-gray-300 mb-4">Depois de criar algo legal, você pode compartilhar com amigos, família ou até mesmo com o mundo!</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">E-mail:</strong> Envie seus documentos, fotos ou vídeos para amigos e professores.</li>
+                            <li><strong class="text-orange-400">Redes Sociais:</strong> Com a permissão de um adulto, você pode postar suas criações em redes sociais para seus amigos verem.</li>
+                            <li><strong class="text-green-400">Pendrives/Nuvem:</strong> Salve em um pendrive para levar para outro computador, ou use serviços de nuvem (como Google Drive) para guardar e acessar de qualquer lugar.</li>
+                        </ul>
+                        <p class="text-lg text-gray-300 mt-4 font-semibold">Lembre-se sempre de pedir permissão a um adulto antes de compartilhar qualquer coisa online!</p>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="./imagens/compartilhar-conteudo.avif" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="questionario-aula10" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-8 text-white">Questionário da Aula 10 <br> Criando Conteúdo</h2>
+                <form id="quizFormAula10" class="space-y-8">
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">1. O que significa "criar conteúdo digital"?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q1_aula10" value="a" class="mr-2"> Apenas assistir a vídeos online.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula10" value="b" class="mr-2"> Usar o computador para produzir algo novo (texto, imagem, áudio, vídeo).
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula10" value="c" class="mr-2"> Navegar em sites da internet.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula10" value="d" class="mr-2"> Organizar pastas no Explorador de Arquivos.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">2. Qual programa você usaria para criar uma apresentação de slides?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q2_aula10" value="a" class="mr-2"> Bloco de Notas
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula10" value="b" class="mr-2"> Microsoft PowerPoint
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula10" value="c" class="mr-2"> Google Chrome
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula10" value="d" class="mr-2"> VLC Media Player
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">3. Qual destas é uma ferramenta online e fácil de usar para criar e editar imagens?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q3_aula10" value="a" class="mr-2"> Microsoft Word
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula10" value="b" class="mr-2"> Paint 3D
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula10" value="c" class="mr-2"> Canva
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula10" value="d" class="mr-2"> Spotify
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">4. Se você quer guardar um arquivo e acessá-lo de qualquer computador com internet, qual serviço você pode usar?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q4_aula10" value="a" class="mr-2"> Um pendrive.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula10" value="b" class="mr-2"> O disco rígido do seu computador.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula10" value="c" class="mr-2"> Serviços de nuvem (como Google Drive).
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula10" value="d" class="mr-2"> A Lixeira.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">5. Qual é a regra mais importante ao compartilhar suas criações online?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q5_aula10" value="a" class="mr-2"> Compartilhar com o máximo de pessoas possível.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula10" value="b" class="mr-2"> Compartilhar apenas com seus amigos.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula10" value="c" class="mr-2"> Pedir permissão a um adulto antes de compartilhar qualquer coisa online.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula10" value="d" class="mr-2"> Não é necessário pedir permissão.
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-full text-lg transition-transform duration-300 transform hover:scale-105">
+                        Verificar Respostas
+                    </button>
+                </form>
+                <div id="quizResultsAula10" class="mt-8 bg-gray-700 p-6 rounded-lg shadow-lg hidden">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Seus Resultados:</h3>
+                    <p id="scoreTextAula10" class="text-xl text-gray-100 mb-4"></p>
+                    <ul id="feedbackListAula10" class="space-y-2"></ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-950 text-gray-400 text-center p-4">
+        <p>&copy; 2025 - Curso de Introdução à Informática</p>
+        <p>By Sebastian Alencar - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lessonSelect = document.getElementById('lessonSelect');
+            // Set the correct option as selected based on the current page
+            const currentPage = window.location.pathname.split('/').pop();
+            const options = lessonSelect.options;
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].value === currentPage) {
+                    options[i].selected = true;
+                    break;
+                }
+            }
+
+            lessonSelect.addEventListener('change', (event) => {
+                const selectedPage = event.target.value;
+                window.location.href = selectedPage; // Navigate to the selected HTML file
+            });
+
+            // Quiz logic for Aula 10 (specific to this page)
+            const quizFormAula10 = document.getElementById('quizFormAula10');
+            const quizResultsAula10 = document.getElementById('quizResultsAula10');
+            const scoreTextAula10 = document.getElementById('scoreTextAula10');
+            const feedbackListAula10 = document.getElementById('feedbackListAula10');
+
+            const correctAnswersAula10 = {
+                q1_aula10: 'b', // Usar o computador para produzir algo novo (texto, imagem, áudio, vídeo).
+                q2_aula10: 'b', // Microsoft PowerPoint
+                q3_aula10: 'c', // Canva
+                q4_aula10: 'c', // Serviços de nuvem (como Google Drive).
+                q5_aula10: 'c'  // Pedir permissão a um adulto antes de compartilhar qualquer coisa online.
+            };
+
+            quizFormAula10.addEventListener('submit', (event) => {
+                event.preventDefault();
+                let score = 0;
+                feedbackListAula10.innerHTML = '';
+
+                for (const q in correctAnswersAula10) {
+                    const selectedOption = document.querySelector(`input[name="${q}"]:checked`);
+                    const listItem = document.createElement('li');
+                    const questionNumber = q.replace('q', '').replace('_aula10', '');
+                    
+                    if (selectedOption) {
+                        if (selectedOption.value === correctAnswersAula10[q]) {
+                            score++;
+                            listItem.className = 'text-green-400';
+                            listItem.innerHTML = `Questão ${questionNumber}: Correta! ✅`;
+                        } else {
+                            listItem.className = 'text-red-400';
+                            listItem.innerHTML = `Questão ${questionNumber}: Incorreta. A resposta correta era "${correctAnswersAula10[q].toUpperCase()}". ❌`;
+                        }
+                    } else {
+                        listItem.className = 'text-yellow-400';
+                        listItem.innerHTML = `Questão ${questionNumber}: Não respondida. ⚠️`;
+                    }
+                    feedbackListAula10.appendChild(listItem);
+                }
+
+                scoreTextAula10.textContent = `Você acertou ${score} de ${Object.keys(correctAnswersAula10).length} perguntas.`;
+                quizResultsAula10.classList.remove('hidden');
+                quizResultsAula10.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+
+</body>
+</html>

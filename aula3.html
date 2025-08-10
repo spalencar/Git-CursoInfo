@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="imagens/favicon-16x16.png">
+    <title>Aula 3 - O que são Softwares?</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Dark Tech (Deep Gray, Dark Blue, Teal, Orange accents) -->
+    <!-- Application Structure Plan: Individual HTML pages for each lesson, navigated via a top fixed dropdown menu. Each page contains its lesson content and a dedicated questionnaire. This structure enhances modularity, allowing for more in-depth content per lesson and clearer separation, improving user experience for a multi-lesson course. -->
+    <!-- Visualization & Content Choices: Report Info: 'O que são Softwares?' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for concept. Report Info: 'Tipos de Software' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for classification. Report Info: 'Como Software e Hardware Trabalham Juntos' -> Goal: Inform -> Viz: Text with Image -> Interaction: None. Justification: Visual aid for relationship. New: Questionnaire -> Goal: Assess understanding -> Viz: HTML Form with JS validation. Justification: Direct assessment of lesson comprehension. Logo uses <img> tag for better branding and accessibility. No quantitative data was present, so no charts were used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card {
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .card.is-flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .card-face-back {
+            transform: rotateY(180deg);
+        }
+        .icon-glow:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 15px currentColor;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-950 p-4 shadow-lg">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="./imagens/logotipo-ICV.png" alt="Logo Instituto Casa Verde" class="h-8 md:h-10">
+                <p style="color: rgb(3, 255, 3);">INSTITUTO CASA VERDE</p>
+            </div>
+            <div class="relative">
+                <select id="lessonSelect" class="bg-gray-700 text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 cursor-pointer">
+                    <option value="aula1.html">Aula 1 - Introdução</option>
+                    <option value="aula2.html">Aula 2 - Conectando e Cuidando</option>
+                    <option value="aula3.html" selected>Aula 3 - O que são Softwares?</option>
+                    <option value="aula4.html">Aula 4 - Conhecendo o Windows</option>
+                    <option value="aula5.html">Aula 5 - Organizando Arquivos</option>
+                    <option value="aula6.html">Aula 6 - Editores de Texto</option>
+                    <option value="aula7.html">Aula 7 - Multimídia e Online</option>
+                    <option value="aula8.html">Aula 8 - Navegando na Internet</option>
+                    <option value="aula9.html">Aula 9 - Segurança na Internet</option>
+                    <option value="aula10.html">Aula 10 - Criando Conteúdo</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- AULA 3: O que são Softwares? -->
+        <section id="aula3_content" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">AULA 3</h2>
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">Software – A Alma do Computador</h2>
+                <p class="text-lg text-center text-gray-300 mb-12 max-w-2xl mx-auto">Se o hardware é o corpo, o que vocês acham que é o software? Nesta aula, vamos desvendar a 'alma' do computador: os softwares! Eles são as instruções que fazem o hardware funcionar e nos permitem fazer tudo o que queremos.</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">O que são Softwares? Tipos e Funções</h3>
+                        <p class="text-lg text-gray-300 mb-4">Software é o conjunto de instruções, programas, dados e procedimentos que dizem ao hardware o que fazer. Pense neles como as 'regras do jogo' ou as 'receitas de bolo' que o computador segue.</p>
+                        <p class="text-lg text-gray-300 mb-4 font-semibold">Tipos de Software:</p>
+                        <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
+                            <li><strong class="text-blue-400">Software de Sistema:</strong> É o software mais importante! Ele gerencia o hardware e permite que outros programas funcionem. Exemplos: Windows, macOS, Linux (sistemas operacionais).</li>
+                            <li><strong class="text-orange-400">Software de Aplicativo:</strong> São os programas que usamos para tarefas específicas. Exemplos: jogos, editores de texto, navegadores de internet, aplicativos de redes sociais.</li>
+                            <li><strong class="text-green-400">Software de Programação:</strong> Ferramentas usadas por desenvolvedores para criar outros softwares. Não vamos nos aprofundar, mas é bom saber que existem!</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="./imagens/tipos-de-softwares.png" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="flex justify-center items-center order-2 lg:order-1">
+                        <img src="./imagens/software-e-hardware.png" alt="" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <h3 class="text-3xl font-bold mb-4 text-teal-400">Como Software e Hardware Trabalham Juntos</h3>
+                        <p class="text-lg text-gray-300 mb-4">Hardware (o corpo) e Software (a alma) são inseparáveis! Um não funciona sem o outro.</p>
+                        <p class="text-lg text-gray-300 mb-4">Imagine um carro (hardware) sem motorista (software) ou um GPS (software) sem o carro para se mover. Eles precisam um do outro para que o computador possa realizar suas tarefas e nos ajudar no dia a dia.</p>
+                    </div>
+                </div>
+
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-6 text-teal-400">Exemplos Comuns de Softwares</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                            <span class="text-5xl mb-4 block">🌐</span>
+                            <h4 class="text-2xl font-semibold text-white">Navegadores de Internet</h4>
+                            <p class="text-gray-300">Google Chrome, Mozilla Firefox, Microsoft Edge</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                            <span class="text-5xl mb-4 block">📝</span>
+                            <h4 class="text-2xl font-semibold text-white">Editores de Texto</h4>
+                            <p class="text-gray-300">Bloco de Notas, Microsoft Word, Google Docs</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                            <span class="text-5xl mb-4 block">▶️</span>
+                            <h4 class="text-2xl font-semibold text-white">Reprodutores de Mídia</h4>
+                            <p class="text-gray-300">VLC Media Player, Spotify, YouTube</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center col-span-1 md:col-span-2 lg:col-span-1">
+                            <span class="text-5xl mb-4 block">🎮</span>
+                            <h4 class="text-2xl font-semibold text-white">Jogos</h4>
+                            <p class="text-gray-300">Minecraft, Roblox, Fortnite, entre outros!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="questionario-aula3" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-8 text-white">Questionário da Aula 3 <br> O que são Softwares?</h2>
+                <form id="quizFormAula3" class="space-y-8">
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">1. O que é software?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q1_aula3" value="a" class="mr-2"> A parte física do computador.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula3" value="b" class="mr-2"> O conjunto de instruções que diz ao hardware o que fazer.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula3" value="c" class="mr-2"> O cabo de energia do computador.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula3" value="d" class="mr-2"> O monitor do computador.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">2. Qual tipo de software gerencia o hardware e permite que outros programas funcionem?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q2_aula3" value="a" class="mr-2"> Software de Aplicativo
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula3" value="b" class="mr-2"> Software de Programação
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula3" value="c" class="mr-2"> Software de Sistema
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula3" value="d" class="mr-2"> Software de Jogo
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">3. Qual destas opções é um exemplo de Software de Aplicativo?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q3_aula3" value="a" class="mr-2"> Windows
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula3" value="b" class="mr-2"> Linux
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula3" value="c" class="mr-2"> Microsoft Word
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula3" value="d" class="mr-2"> macOS
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">4. Hardware e software:</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q4_aula3" value="a" class="mr-2"> Funcionam independentemente.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula3" value="b" class="mr-2"> O software é a parte física e o hardware as instruções.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula3" value="c" class="mr-2"> São inseparáveis e precisam um do outro para funcionar.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula3" value="d" class="mr-2"> Apenas o hardware é importante.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">5. Qual destes é um exemplo de navegador de internet?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q5_aula3" value="a" class="mr-2"> Bloco de Notas
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula3" value="b" class="mr-2"> Microsoft Word
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula3" value="c" class="mr-2"> Google Chrome
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula3" value="d" class="mr-2"> Spotify
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-full text-lg transition-transform duration-300 transform hover:scale-105">
+                        Verificar Respostas
+                    </button>
+                </form>
+                <div id="quizResultsAula3" class="mt-8 bg-gray-700 p-6 rounded-lg shadow-lg hidden">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Seus Resultados:</h3>
+                    <p id="scoreTextAula3" class="text-xl text-gray-100 mb-4"></p>
+                    <ul id="feedbackListAula3" class="space-y-2"></ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-950 text-gray-400 text-center p-4">
+        <p>&copy; 2025 - Curso de Introdução à Informática</p>
+        <p>By Sebastian Alencar - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lessonSelect = document.getElementById('lessonSelect');
+            // Set the correct option as selected based on the current page
+            const currentPage = window.location.pathname.split('/').pop();
+            const options = lessonSelect.options;
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].value === currentPage) {
+                    options[i].selected = true;
+                    break;
+                }
+            }
+
+            lessonSelect.addEventListener('change', (event) => {
+                const selectedPage = event.target.value;
+                window.location.href = selectedPage; // Navigate to the selected HTML file
+            });
+
+            // Quiz logic for Aula 3 (specific to this page)
+            const quizFormAula3 = document.getElementById('quizFormAula3');
+            const quizResultsAula3 = document.getElementById('quizResultsAula3');
+            const scoreTextAula3 = document.getElementById('scoreTextAula3');
+            const feedbackListAula3 = document.getElementById('feedbackListAula3');
+
+            const correctAnswersAula3 = {
+                q1_aula3: 'b', // O conjunto de instruções que diz ao hardware o que fazer.
+                q2_aula3: 'c', // Software de Sistema
+                q3_aula3: 'c', // Microsoft Word
+                q4_aula3: 'c', // São inseparáveis e precisam um do outro para funcionar.
+                q5_aula3: 'c'  // Google Chrome
+            };
+
+            quizFormAula3.addEventListener('submit', (event) => {
+                event.preventDefault();
+                let score = 0;
+                feedbackListAula3.innerHTML = '';
+
+                for (const q in correctAnswersAula3) {
+                    const selectedOption = document.querySelector(`input[name="${q}"]:checked`);
+                    const listItem = document.createElement('li');
+                    const questionNumber = q.replace('q', '').replace('_aula3', '');
+                    
+                    if (selectedOption) {
+                        if (selectedOption.value === correctAnswersAula3[q]) {
+                            score++;
+                            listItem.className = 'text-green-400';
+                            listItem.innerHTML = `Questão ${questionNumber}: Correta! ✅`;
+                        } else {
+                            listItem.className = 'text-red-400';
+                            listItem.innerHTML = `Questão ${questionNumber}: Incorreta. A resposta correta era "${correctAnswersAula3[q].toUpperCase()}". ❌`;
+                        }
+                    } else {
+                        listItem.className = 'text-yellow-400';
+                        listItem.innerHTML = `Questão ${questionNumber}: Não respondida. ⚠️`;
+                    }
+                    feedbackListAula3.appendChild(listItem);
+                }
+
+                scoreTextAula3.textContent = `Você acertou ${score} de ${Object.keys(correctAnswersAula3).length} perguntas.`;
+                quizResultsAula3.classList.remove('hidden');
+                quizResultsAula3.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+
+</body>
+</html>
