@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="imagens/favicon-16x16.png">
+    <title>Aula 1 - Introdução à Informática</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card {
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .card.is-flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .card-face-back {
+            transform: rotateY(180deg);
+        }
+        .icon-glow:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 15px currentColor;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-950 p-4 shadow-lg">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="./imagens/logotipo-ICV.png" alt="Logo Instituto Casa Verde" class="h-8 md:h-10">
+                <p style="color: rgb(3, 255, 3);">INSTITUTO CASA VERDE</p>
+            </div>
+            <div class="relative">
+                <select id="lessonSelect" class="bg-gray-700 text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 cursor-pointer">
+                    <option value="aula1.html" selected>Aula 1 - Introdução</option>
+                    <option value="aula2.html">Aula 2 - Conectando e Cuidando</option>
+                    <option value="aula3.html">Aula 3 - O que são Softwares?</option>
+                    <option value="aula4.html">Aula 4 - Conhecendo o Windows</option>
+                    <option value="aula5.html">Aula 5 - Organizando Arquivos</option>
+                    <option value="aula6.html">Aula 6 - Editores de Texto</option>
+                    <option value="aula7.html">Aula 7 - Multimídia e Online</option>
+                    <option value="aula8.html">Aula 8 - Navegando na Internet</option>
+                    <option value="aula9.html">Aula 9 - Segurança na Internet</option>
+                    <option value="aula10.html">Aula 10 - Criando Conteúdo</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <section id="hero" class="min-h-screen flex items-center justify-center bg-gray-800 p-8 text-center">
+            <div class="max-w-3xl mx-auto">
+                <img src="./imagens/logotipo-ICV-2.png" alt="Logo do Instituto Casa Verde" class="mx-auto mb-6 w-auto h-auto max-w-[150px] md:max-w-[200px]">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">Bem-vindos ao Mundo da Informática!</h1>
+                <p class="text-xl md:text-2xl text-gray-300">Prepare-se para uma jornada incrível pelo universo da tecnologia.</p>
+                <div class="mt-12 text-3xl animate-bounce">
+                    <span>👇</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="what-is-it" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">O que é um Computador?</h2>
+                <p class="text-lg text-center text-gray-300 mb-12 max-w-2xl mx-auto">É muito mais que uma tela! Clique nos cartões abaixo para descobrir como essa super ferramenta pode transformar seu dia a dia.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card-container h-64 perspective-[1000px]">
+                        <div class="card relative w-full h-full cursor-pointer">
+                            <div class="card-face absolute w-full h-full flex flex-col items-center justify-center bg-gray-700 text-gray-900 rounded-xl shadow-lg p-6 border-2 border-teal-400">
+                                <span class="text-5xl mb-4">🧠</span>
+                                <h3 class="text-2xl font-bold text-center">Máquina Inteligente</h3>
+                            </div>
+                            <div class="card-face card-face-back absolute w-full h-full flex items-center justify-center bg-teal-500 text-gray-900 rounded-xl shadow-lg p-6">
+                                <p class="text-center text-lg">Ele processa informações, resolve problemas e aprende com você.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-container h-64 perspective-[1000px]">
+                        <div class="card relative w-full h-full cursor-pointer">
+                            <div class="card-face absolute w-full h-full flex flex-col items-center justify-center bg-gray-700 text-gray-900 rounded-xl shadow-lg p-6 border-2 border-blue-400">
+                                <span class="text-5xl mb-4">🎨</span>
+                                <h3 class="text-2xl font-bold text-center">Ferramenta para Criar</h3>
+                            </div>
+                            <div class="card-face card-face-back absolute w-full h-full flex items-center justify-center bg-blue-500 text-gray-900 rounded-xl shadow-lg p-6">
+                                <p class="text-center text-lg">Use-o para desenhar, escrever histórias, fazer vídeos e muito mais!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-container h-64 perspective-[1000px]">
+                        <div class="card relative w-full h-full cursor-pointer">
+                            <div class="card-face absolute w-full h-full flex flex-col items-center justify-center bg-gray-700 text-gray-900 rounded-xl shadow-lg p-6 border-2 border-orange-400">
+                                <span class="text-5xl mb-4">🌐</span>
+                                <h3 class="text-2xl font-bold text-center">Portal para o Mundo</h3>
+                            </div>
+                            <div class="card-face card-face-back absolute w-full h-full flex items-center justify-center bg-orange-500 text-gray-900 rounded-xl shadow-lg p-6">
+                                <p class="text-center text-lg">Conecte-se com amigos, explore novos lugares e aprenda sobre qualquer coisa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-is-it-important" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">Por que é tão Importante?</h2>
+                <p class="text-lg text-center text-gray-300 mb-16 max-w-2xl mx-auto">A informática está em todo lugar! Passe o mouse sobre os ícones e veja como ela já faz parte da sua vida. Entender como funciona é como ter superpoderes para o futuro!</p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 text-center">
+                    <div class="flex flex-col items-center">
+                        <span class="text-6xl text-green-400 icon-glow transition-transform duration-300 cursor-pointer">🎓</span>
+                        <p class="mt-4 text-lg font-semibold text-gray-100">Na Escola</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-6xl text-red-400 icon-glow transition-transform duration-300 cursor-pointer">🎮</span>
+                        <p class="mt-4 text-lg font-semibold text-gray-100">Nos Jogos</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-6xl text-yellow-400 icon-glow transition-transform duration-300 cursor-pointer">🎬</span>
+                        <p class="mt-4 text-lg font-semibold text-gray-100">Nos Filmes</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-6xl text-blue-400 icon-glow transition-transform duration-300 cursor-pointer">💬</span>
+                        <p class="mt-4 text-lg font-semibold text-gray-100">Na Comunicação</p>
+                    </div>
+                    <div class="flex flex-col items-center col-span-2 md:col-span-1">
+                        <span class="text-6xl text-purple-400 icon-glow transition-transform duration-300 cursor-pointer">🎵</span>
+                        <p class="mt-4 text-lg font-semibold text-gray-100">Na Música</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="call-to-action" class="py-24 px-4 sm:px-6 lg:px-8 text-center bg-gray-900">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-4xl font-bold mb-4 text-white">Preparado para a Jornada?</h2>
+                <p class="text-lg text-gray-300 mb-8">Vamos explorar juntos esse universo incrível, desvendando seus segredos e aprendendo a usar a tecnologia de forma divertida e inteligente!</p>
+                <button id="startButton" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-8 rounded-full text-xl transition-transform duration-300 transform hover:scale-105">
+                    Começar a Aventura!
+                </button>
+                <p id="startMessage" class="mt-6 text-xl text-gray-100 font-semibold opacity-0 transition-opacity duration-500">A jornada começa na nossa próxima aula. Até lá!</p>
+            </div>
+        </section>
+
+        <section id="questionario-aula1" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-8 text-white">Questionário da Aula 1 <br> Introdução</h2>
+                <form id="quizFormAula1" class="space-y-8">
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">1. Qual componente é considerado o "cérebro" do computador?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q1_aula1" value="a" class="mr-2"> Monitor
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula1" value="b" class="mr-2"> Teclado
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula1" value="c" class="mr-2"> CPU
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q1_aula1" value="d" class="mr-2"> Mouse
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">2. Qual dispositivo é usado para "falar" com o computador (entrada)?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q2_aula1" value="a" class="mr-2"> Impressora
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula1" value="b" class="mr-2"> Monitor
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula1" value="c" class="mr-2"> Teclado
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q2_aula1" value="d" class="mr-2"> Caixa de som
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">3. Onde o computador "guarda" os arquivos permanentemente?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q3_aula1" value="a" class="mr-2"> Memória RAM
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula1" value="b" class="mr-2"> Disco Rígido (HD/SSD)
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula1" value="c" class="mr-2"> Placa-mãe
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q3_aula1" value="d" class="mr-2"> Fonte de Alimentação
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">4. Qual é a função da Memória RAM?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q4_aula1" value="a" class="mr-2"> Armazenar arquivos permanentemente.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula1" value="b" class="mr-2"> Conectar todos os componentes.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula1" value="c" class="mr-2"> Guardar informações enquanto o computador está trabalhando.
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q4_aula1" value="d" class="mr-2"> Fornecer energia.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <p class="text-lg font-semibold mb-4 text-gray-100">5. Qual destas não é uma porta de conexão comum em um computador?</p>
+                        <div class="space-y-2">
+                            <label class="block">
+                                <input type="radio" name="q5_aula1" value="a" class="mr-2"> USB
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula1" value="b" class="mr-2"> HDMI
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula1" value="c" class="mr-2"> Ethernet
+                            </label>
+                            <label class="block">
+                                <input type="radio" name="q5_aula1" value="d" class="mr-2"> Porta de Água
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-full text-lg transition-transform duration-300 transform hover:scale-105">
+                        Verificar Respostas
+                    </button>
+                </form>
+                <div id="quizResultsAula1" class="mt-8 bg-gray-700 p-6 rounded-lg shadow-lg hidden">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Seus Resultados:</h3>
+                    <p id="scoreTextAula1" class="text-xl text-gray-100 mb-4"></p>
+                    <ul id="feedbackListAula1" class="space-y-2"></ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-950 text-gray-400 text-center p-4">
+        <p>&copy; 2025 - Curso de Introdução à Informática</p>
+        <p>By Sebastian Alencar - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('is-flipped');
+                });
+            });
+
+            const startButton = document.getElementById('startButton');
+            const startMessage = document.getElementById('startMessage');
+            startButton.addEventListener('click', () => {
+                startMessage.style.opacity = '1';
+                startButton.style.display = 'none';
+            });
+
+            const lessonSelect = document.getElementById('lessonSelect');
+            lessonSelect.addEventListener('change', (event) => {
+                const selectedPage = event.target.value;
+                window.location.href = selectedPage; // Navigate to the selected HTML file
+            });
+
+            // Quiz logic for Aula 1
+            const quizFormAula1 = document.getElementById('quizFormAula1');
+            const quizResultsAula1 = document.getElementById('quizResultsAula1');
+            const scoreTextAula1 = document.getElementById('scoreTextAula1');
+            const feedbackListAula1 = document.getElementById('feedbackListAula1');
+
+            const correctAnswersAula1 = {
+                q1_aula1: 'c', // CPU
+                q2_aula1: 'c', // Teclado
+                q3_aula1: 'b', // Disco Rígido (HD/SSD)
+                q4_aula1: 'c', // Guardar informações enquanto o computador está trabalhando.
+                q5_aula1: 'd'  // Porta de Água
+            };
+
+            quizFormAula1.addEventListener('submit', (event) => {
+                event.preventDefault();
+                let score = 0;
+                feedbackListAula1.innerHTML = '';
+
+                for (const q in correctAnswersAula1) {
+                    const selectedOption = document.querySelector(`input[name="${q}"]:checked`);
+                    const listItem = document.createElement('li');
+                    const questionNumber = q.replace('q', '').replace('_aula1', '');
+                    
+                    if (selectedOption) {
+                        if (selectedOption.value === correctAnswersAula1[q]) {
+                            score++;
+                            listItem.className = 'text-green-400';
+                            listItem.innerHTML = `Questão ${questionNumber}: Correta! ✅`;
+                        } else {
+                            listItem.className = 'text-red-400';
+                            listItem.innerHTML = `Questão ${questionNumber}: Incorreta. A resposta correta era "${correctAnswersAula1[q].toUpperCase()}". ❌`;
+                        }
+                    } else {
+                        listItem.className = 'text-yellow-400';
+                        listItem.innerHTML = `Questão ${questionNumber}: Não respondida. ⚠️`;
+                    }
+                    feedbackListAula1.appendChild(listItem);
+                }
+
+                scoreTextAula1.textContent = `Você acertou ${score} de ${Object.keys(correctAnswersAula1).length} perguntas.`;
+                quizResultsAula1.classList.remove('hidden');
+                quizResultsAula1.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
